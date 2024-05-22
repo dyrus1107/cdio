@@ -1,6 +1,13 @@
+"use client";
+
+import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
+import { useConvexAuth } from "convex/react";
+import { ArrowRight, ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 const Heroes = () => {
+  const { isAuthenticated, isLoading } = useConvexAuth();
   return (
     <div className="relative w-full h-[calc(100vh-5rem)] overflow-hidden flex flex-col items-center px-64 py-40">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-rose-300 to-sky-400 dark:from-red-400 dark:to-sky-500 z-0 transition-all duration-200">
@@ -15,9 +22,20 @@ const Heroes = () => {
           Empower your knowledge with AI-driven insights. Your ultimate
           companion for capturing and organizing thoughts
         </h2>
-        <Button size="xl" className="text-xl font-semibold">
-          Say hi to your Mate
-        </Button>
+        {isLoading && <Spinner size="lg" />}
+        {!isAuthenticated && !isLoading && (
+          <Button size="xl" className="text-xl font-semibold">
+            Say hi to your Mate
+          </Button>
+        )}
+        {isAuthenticated && !isLoading && (
+          <Button size="xl" asChild className="text-xl font-semibold">
+            <Link href="/documents">
+              Welcome back{" "}
+                <ArrowRight className="w-6 h-6 ml-2" />
+            </Link>
+          </Button>
+        )}
       </div>
     </div>
   );
