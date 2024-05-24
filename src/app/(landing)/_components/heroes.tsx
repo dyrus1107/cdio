@@ -2,6 +2,7 @@
 
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
+import { SignInButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -24,15 +25,16 @@ const Heroes = () => {
         </h2>
         {isLoading && <Spinner size="lg" />}
         {!isAuthenticated && !isLoading && (
-          <Button size="xl" className="text-xl font-semibold">
-            Say hi to your Mate
+            <SignInButton mode="modal">
+          <Button size="xl" className="text-xl font-semibold" >
+              Say hi to your Mate
           </Button>
+              </SignInButton>
         )}
         {isAuthenticated && !isLoading && (
           <Button size="xl" asChild className="text-xl font-semibold">
             <Link href="/documents">
-              Welcome back{" "}
-                <ArrowRight className="w-6 h-6 ml-2" />
+              Welcome back <ArrowRight className="w-6 h-6 ml-2" />
             </Link>
           </Button>
         )}

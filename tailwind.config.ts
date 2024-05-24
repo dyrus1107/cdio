@@ -3,11 +3,11 @@ import type { Config } from "tailwindcss"
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -52,6 +52,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "blue": {
+          "50": "#f0f7fe",
+          "100": "#ddecfc",
+          "200": "#c2dffb",
+          "300": "#99cbf7",
+          "400": "#68aff2",
+          "500": "#5297ed",
+          "600": "#3073e0",
+          "700": "#275ece",
+          "800": "#264ca7",
+          "900": "#244384",
+          "950": "#1a2b51",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,6 +88,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
 export default config

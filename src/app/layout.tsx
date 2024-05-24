@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ConvexClientProviders } from "@/components/providers/convex-provider";
 
+import {Toaster} from "sonner"
+
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -31,6 +33,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Toaster position="bottom-center"/>
             {children}
           </ThemeProvider>
         </body>
